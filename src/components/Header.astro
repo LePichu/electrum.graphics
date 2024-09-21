@@ -1,0 +1,25 @@
+---
+const NAV_ITEMS = {
+    "Documentation": "/docs/",
+    "<discord>": "https://discord.gg/NTuK8bQ2hn",
+    "<github>": "https://github.com/wgpu-mc/"
+}
+---
+
+<header class="p-4 px-12 flex justify-between items-center">
+    <a href="/" class="text-2xl font-bold">
+        <img src="/favicon.svg" alt="Electrum" class="h-16 w-auto" />
+    </a>
+
+    <div class="flex flex-row gap-12 items-center justify-center">
+        {Object.entries(NAV_ITEMS).map(([k, v]) => {
+            const ret = k.startsWith("<") ? <a href={v} target="_blank">
+                <img src={`/${k.slice(1, -1)}.png`} alt={k} class="h-8 w-auto" />
+            </a> : <a href={v} class="text-white text-xl">
+                {k}
+            </a>
+    
+            return ret 
+        })}
+    </div>
+</header>
